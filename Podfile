@@ -1,12 +1,18 @@
-platform :ios, '7.0'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
 target 'Mars-Images' do
-pod 'Evernote-SDK-iOS', '~> 1.3.1'
-pod 'Mapbox-iOS-SDK', :git => 'https://github.com/noodlewerk/mapbox-ios-sdk-legacy.git', :tag => '1.4.1'
-pod 'Reachability', '~> 3.1.1'
-pod 'MWPhotoBrowser', '~> 1.4.1'
-pod 'MMDrawerController', :git => 'https://github.com/drmarkpowell/MMDrawerController.git'
-pod 'PSMenuItem', '~> 0.0.1'
-pod 'AFNetworking', '~> 2.0'
-pod 'CHCSVParser', '~> 2.0'
-pod 'ActionSheetPicker-3.0', '~> 1.3.9'
+    pod 'EvernoteSDK', '~> 3.0'
+    # Per MapBox Readme, this repo is for day-to-day dev.
+    pod 'Mapbox-iOS-SDK', podspec: 'https://raw.githubusercontent.com/mapbox/mapbox-gl-native/release-ios-v3.5.0-android-v5.0.0/platform/ios/Mapbox-iOS-SDK.podspec'
+    # Leaving reachability commented out to force use of Apple Built-In
+    #pod 'Reachability', '~> 3.1.1'
+    pod 'MWPhotoBrowser', '~> 2.1.2'
+    pod 'MMDrawerController', :git => 'https://github.com/drmarkpowell/MMDrawerController.git'
+    # PSMenuItem: Podspec on CocoaPods not updated to reflect an update in 2015 that is needed for newer versions of Xcode (7+). For this reason, using the commit that introduces this fix "Cast objc_msgSend calls to placate compiler."
+    pod 'PSMenuItem', :git => 'https://github.com/steipete/PSMenuItem', :commit => '489dbb1c42f8c2c43ac04f0a34faf9aea3b7aa79'
+    pod 'AFNetworking', '~> 3.0'
+    pod 'CHCSVParser', '~> 2.1.0'
+    pod 'ActionSheetPicker-3.0', '~> 2.2.0'
 end
+
